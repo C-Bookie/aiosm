@@ -31,6 +31,9 @@ class Adder(Client):  # example implementing the Client class
 
 
 class MyTestCase(unittest.TestCase):
+	def test_version(self):
+		self.assertEqual(__version__, '0.0.2')
+
 	host = Host()
 	client1 = Adder("client1")
 	client2 = Adder("client2")
@@ -54,8 +57,6 @@ class MyTestCase(unittest.TestCase):
 		await setup()
 
 	def test_bidirectional_rpc(self):
-		self.assertEqual(__version__, '0.0.0')
-
 		async def broadcast_test():
 			asyncio.current_task().set_name("Broadcast Test")
 			await self.client1.broadcast("client2", "pass_along", "client1")
