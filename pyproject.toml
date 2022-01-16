@@ -1,22 +1,34 @@
-[tool.poetry]
-name = "aiosm"
-version = "0.0.2"
-description = "Asynchronous socket manager for using asyncio with RPC capabilities."
-authors = ["Callum B-C <callum@fish.cat>"]
-license = "MIT"
-readme = 'README.md'
-repository = "https://github.com/C-Bookie/aiosm"
-keywords = ['async', 'asyncio', 'socket', 'rpc']
-
-[tool.poetry.dependencies]
-python = "^3.8"
-
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
-
-[tool.poetry.scripts]
-asynccom = 'aiosm:run_host'
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["flit_core >=3.6.0,<4"]
+build-backend = "flit_core.buildapi"
 
+[project]
+name = "aiosm"
+authors = [
+    {name = "Callum B-C", email = "callum@fish.cat"},
+]
+dependencies = [
+]
+requires-python = ">=3.8"
+readme = "README.md"
+classifiers = ["Intended Audience :: Developers",
+    "License :: MIT",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ['version', 'description']
+
+[project.optional-dependencies]
+test = [
+	"pytest",
+	"pytest-cov",
+]
+doc = [
+	"sphinx",
+]
+
+[project.urls]
+Source = "https://github.com/C-Bookie/aiosm"
+
+[project.scripts]
+aiosm-host = "aiosm:__main__.run_host"
