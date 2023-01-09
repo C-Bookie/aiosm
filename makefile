@@ -1,0 +1,3 @@
+
+publish:
+	flit publish
