@@ -13,12 +13,14 @@ class Radio:
 		self.writer = writer
 
 	def prepare(self, message: str) -> bytes:
+		# todo: use header
 		data = message.encode()
 		if self.ETX in data:
 			raise Exception('message contains exit sequence: ' + self.ETX.decode())  # todo create custom Exception
 		return data + self.ETX
 
 	def unpack(self, data: bytes) -> str:
+		# todo: use header
 		return data[0:-self.ETX_LEN].decode()
 
 	def sequence(self, message: str) -> None:

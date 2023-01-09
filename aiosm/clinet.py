@@ -10,10 +10,12 @@ class Client(Responder):
 		self.addr = addr
 		self.port = port
 
+		# todo consider adding white_list_functions
 		# self.white_list_functions += []
 
 	async def connect(self) -> None:
-		self.reader, self.writer = await asyncio.open_connection(self.addr, self.port)  # todo add exception handling
+		# todo add exception handling
+		self.reader, self.writer = await asyncio.open_connection(self.addr, self.port)
 		self.ready = True
 
 	async def request(self, func_name: str, *args):
@@ -23,6 +25,8 @@ class Client(Responder):
 		})
 
 	async def broadcast(self, tag: str, func_name: str, *args):  # only Clients subscribed to the tag shall receive
+		# fixme, add key word args
+		#  tdoo, remember what this meant
 		await self.request("broadcast", {
 					"type": func_name,
 					"args": args
