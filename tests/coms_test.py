@@ -32,7 +32,7 @@ class Adder(Client):  # example implementing the Client class
 
 class MyTestCase(unittest.TestCase):
 	def test_version(self):
-		self.assertEqual(__version__, '0.0.5')
+		self.assertEqual(__version__, '0.0.6')
 
 	host = Host()
 	client1 = Adder("client1")
