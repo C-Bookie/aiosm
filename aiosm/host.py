@@ -1,6 +1,6 @@
 
-from .dprint import dprint
-from .node import Node
+from aiosm.dprint import dprint
+from aiosm.node import Node
 
 import asyncio
 from asyncio import StreamReader, StreamWriter, AbstractServer

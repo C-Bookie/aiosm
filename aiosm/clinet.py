@@ -1,5 +1,5 @@
 
-from .responder import Responder
+from aiosm.responder import Responder
 
 import asyncio
 

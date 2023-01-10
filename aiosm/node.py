@@ -1,5 +1,5 @@
 
-from .responder import Responder
+from aiosm.responder import Responder
 # from .host import Host  # fixme circular import preventing type hinting
 
 from typing import Set
